@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Medical Admin Verification Panel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "medical-green": "#10b981",
+                        "medical-red": "#ef4444",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="relative flex min-h-screen flex-col overflow-x-hidden">
+<header class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3">
+<div class="bg-primary/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary text-2xl">verified_user</span>
+</div>
+<div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight">MedVerify Pro</h2>
+<p class="text-xs text-slate-500">Admin Portal v2.4</p>
+</div>
+</div>
+<div class="hidden md:flex items-center bg-slate-100 dark:bg-slate-800 rounded-full px-4 py-1.5 w-80">
+<span class="material-symbols-outlined text-slate-400 text-xl">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-slate-400" placeholder="Search patient or ID..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 flex h-2 w-2 rounded-full bg-medical-red"></span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 dark:bg-slate-800 mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-semibold">Dr. Julian Vance</p>
+<p class="text-xs text-slate-500">Senior Registrar</p>
+</div>
+<div class="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold border-2 border-primary/30 overflow-hidden">
+<img class="h-full w-full object-cover" data-alt="Portrait of a medical administrator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHV8oNJtt1P4svi2dPZk4aTAqmNytvpXU6CafpPrO2VSAOR_PXIFPBID8IqzwSGcKBM6ZcYZxxKJactPKsQ-l1Q09UNk88suhoFOXqi6zugEC4HLjPSpZ4zZXOcVgJqn3LS2apwHK_FLundIyA_tjApq935vSjsxlZ7FtqmD3mmksgRf9stYE07YysEO20klPoS8fpIkHsOzygf4PTHCwpJYX_rYcye3sAraOILiAd9Dm9KrgEpFB2STUWQaZ04k3s6N8oR9PyWBU"/>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 flex flex-col md:flex-row h-[calc(100vh-65px)]">
+<aside class="w-full md:w-20 lg:w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col p-4 gap-2">
+<div class="mb-4 px-2 hidden lg:block">
+<p class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Main Menu</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-primary/10 text-primary font-medium" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="hidden lg:inline text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">assignment_ind</span>
+<span class="hidden lg:inline text-sm">Pending Reviews</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="hidden lg:inline text-sm">Review History</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="hidden lg:inline text-sm">Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl hidden lg:block">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-medical-green text-sm">verified</span>
+<span class="text-xs font-bold text-slate-700 dark:text-slate-300">System Status</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden">
+<div class="bg-medical-green h-full w-[94%]"></div>
+</div>
+<p class="text-[10px] mt-2 text-slate-500">94% Verification Accuracy</p>
+</div>
+</aside>
+<section class="flex-1 flex flex-col bg-background-light dark:bg-background-dark overflow-hidden">
+<div class="px-6 py-4 flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-2 text-xs text-slate-500 mb-1">
+<span>Verification Queue</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span>Foreign Residents</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="text-primary font-medium">PASSPORT-88219-JK</span>
+</div>
+<h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100 flex items-center gap-3">
+                            Passport Verification
+                            <span class="bg-amber-100 text-amber-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider border border-amber-200">Urgent</span>
+</h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-sm font-semibold hover:shadow-sm transition-all">
+<span class="material-symbols-outlined text-lg">skip_next</span>
+                            Next Case
+                        </button>
+</div>
+</div>
+<div class="flex-1 flex flex-col xl:flex-row overflow-hidden p-6 gap-6">
+<div class="flex-1 flex flex-col min-w-0 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+<div class="px-5 py-3 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center bg-slate-50 dark:bg-slate-900">
+<span class="text-sm font-bold text-slate-700 dark:text-slate-300 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">visibility</span>
+                                Document Preview
+                            </span>
+<div class="flex gap-2">
+<button class="p-1.5 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg text-slate-500 transition-colors">
+<span class="material-symbols-outlined">zoom_in</span>
+</button>
+<button class="p-1.5 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg text-slate-500 transition-colors">
+<span class="material-symbols-outlined">rotate_right</span>
+</button>
+<button class="p-1.5 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg text-slate-500 transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</div>
+<div class="flex-1 overflow-auto p-8 bg-slate-200 dark:bg-slate-950 flex items-center justify-center relative">
+<div class="relative w-full max-w-2xl bg-white rounded-lg shadow-2xl p-1">
+<img class="w-full h-auto rounded-md filter contrast-125" data-alt="High quality scan of an international passport document" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwu2C1ftfsIXhUYCuDXu6R2sAT2wZF9euuTXJ7zsG3oo_w3tE9BaiW0xth9COEHDCh1gHHv0GKU8Jwx-Jc2ECdOrMWuuEtiwg9tRnUi6jLQgmybANQy559p3OVfo_5L4Eq_YRPHJKqltWflTbHWMr8snfRbR4uJOHuLAC-LFbaISs0l7ZQR3MPNAELENHvxh-iDnwQ-p281DKTliA5-EokFJ2gMLW3TrBNuzBVl4wfbs45bBxFzdycWuCRbFbXo3dGJ8mnT0JIwEs"/>
+<div class="absolute inset-0 border-2 border-primary/40 rounded-md pointer-events-none"></div>
+<div class="absolute top-1/4 left-1/4 w-32 h-32 border-2 border-dashed border-medical-green rounded-lg flex flex-col items-center justify-center bg-medical-green/5 pointer-events-none">
+<span class="bg-medical-green text-white text-[8px] px-1 absolute -top-2 left-2 font-bold uppercase">Face Match 98%</span>
+</div>
+</div>
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4 bg-black/60 backdrop-blur-md px-6 py-2 rounded-full border border-white/20">
+<button class="text-white hover:text-primary transition-colors flex items-center gap-2 text-xs">
+<span class="material-symbols-outlined text-base">page_control</span>
+                                    Page 1 of 2
+                                </button>
+</div>
+</div>
+</div>
+<div class="w-full xl:w-[400px] flex flex-col gap-6">
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-5">
+<h3 class="font-bold text-slate-900 dark:text-slate-100 mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">checklist</span>
+                                Verification Checklist
+                            </h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 rounded-xl border border-medical-green/30 bg-medical-green/5">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-medical-green flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-lg">check</span>
+</div>
+<div class="text-sm">
+<p class="font-bold text-medical-green">Passport Validity</p>
+<p class="text-xs text-slate-500">Expires: Oct 2028</p>
+</div>
+</div>
+<input checked="" class="rounded text-medical-green focus:ring-medical-green h-5 w-5 cursor-pointer" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-400">
+<span class="material-symbols-outlined text-lg">contact_page</span>
+</div>
+<div class="text-sm">
+<p class="font-bold">Full Name Match</p>
+<p class="text-xs text-slate-500">Sarah Louise Jenkins</p>
+</div>
+</div>
+<input class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5 cursor-pointer" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-400">
+<span class="material-symbols-outlined text-lg">public</span>
+</div>
+<div class="text-sm">
+<p class="font-bold">Hologram Clear</p>
+<p class="text-xs text-slate-500">Visual security check</p>
+</div>
+</div>
+<input class="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5 cursor-pointer" type="checkbox"/>
+</div>
+<div class="pt-2">
+<label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Reviewer Notes</label>
+<textarea class="w-full rounded-xl border-slate-200 dark:border-slate-800 dark:bg-slate-950 text-sm focus:ring-primary focus:border-primary" placeholder="Add any observations or missing info..." rows="3"></textarea>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 mt-auto">
+<div class="flex flex-col gap-3">
+<button class="w-full bg-medical-green hover:bg-emerald-600 text-white font-bold py-3.5 rounded-full flex items-center justify-center gap-2 transition-all shadow-lg shadow-medical-green/20">
+<span class="material-symbols-outlined">verified</span>
+                                    Approve Document
+                                </button>
+<button class="w-full bg-medical-red/10 hover:bg-medical-red/20 text-medical-red font-bold py-3.5 rounded-full flex items-center justify-center gap-2 border border-medical-red/20 transition-all">
+<span class="material-symbols-outlined">block</span>
+                                    Reject &amp; Request Resubmission
+                                </button>
+</div>
+<p class="text-center text-[11px] text-slate-400 mt-4 leading-relaxed px-4">
+                                Approving this document will update the patient's legal status across all clinical systems.
+                            </p>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

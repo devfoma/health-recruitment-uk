@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Health Recruitment UK - Admin Applicant Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col">
+<div class="p-6">
+<div class="flex items-center gap-3">
+<div class="bg-primary size-10 rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined">medical_services</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-primary text-base font-bold leading-none">HealthRecruit UK</h1>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">Admin Panel</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-semibold">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary text-white rounded-xl shadow-lg shadow-primary/20" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-semibold">Applicants</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="text-sm font-semibold">Job Postings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="text-sm font-semibold">Reports</span>
+</a>
+<div class="pt-4 pb-2">
+<p class="px-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">System</p>
+</div>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-semibold">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="text-sm font-semibold">Support</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 p-2 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
+<img class="size-10 rounded-full bg-slate-200" data-alt="Profile picture of the system administrator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRjlEiUxdP4_X_0nYNHwwUagdy57xK5-Ya_BBt3oGjo3aiChrgvOnYLVw-eXgmZplniKAvAyfq4eAoW5Q4YiI0nKGrBrKsLX11TpMqyQcp6UccC06rzwqxKuFiJdbIC0LCUvWJ2ZP5Cl7SLCms7bhV4PLa9e8XrtAdyAsxAOfQkAady8_xaP9qRJeQmdLCcwm9ggwU9JIkBK8U8xlKqZVi-fH-ZE2N7V5wwdh6Xa4lH7c_8hbRc8C_1m46MKMPmTbR7ds--11uQmI"/>
+<div class="flex flex-col">
+<p class="text-sm font-bold truncate">Dr. Admin User</p>
+<p class="text-xs text-slate-500">System Chief</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col overflow-hidden bg-background-light dark:bg-background-dark">
+<!-- Header -->
+<header class="h-20 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8">
+<div class="flex items-center gap-4">
+<div class="bg-primary/5 dark:bg-primary/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary">groups</span>
+</div>
+<div>
+<h2 class="text-xl font-bold">Applicant Management</h2>
+<p class="text-xs text-slate-500 font-medium">Verified healthcare professionals database</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative w-80">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-full py-2.5 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/50 transition-all" placeholder="Search by name, role or ID..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 size-10 rounded-full flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 size-10 rounded-full flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-all">
+<span class="material-symbols-outlined">mail</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="flex-1 overflow-y-auto p-8">
+<!-- Action Bar -->
+<div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+<div class="flex items-center gap-2 bg-white dark:bg-slate-900 p-1.5 rounded-full border border-slate-200 dark:border-slate-800">
+<button class="px-6 py-2 rounded-full text-sm font-bold bg-primary text-white">All Applicants</button>
+<button class="px-6 py-2 rounded-full text-sm font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">Pending</button>
+<button class="px-6 py-2 rounded-full text-sm font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">Verified</button>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-5 py-2.5 rounded-full text-sm font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all shadow-sm">
+<span class="material-symbols-outlined text-lg">download</span>
+                            Export CSV
+                        </button>
+<button class="flex items-center gap-2 bg-primary px-6 py-2.5 rounded-full text-sm font-bold text-white hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-lg">add</span>
+                            Add New
+                        </button>
+</div>
+</div>
+<!-- Table Card -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-slate-50/50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Name &amp; Role</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Status</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Verification Progress</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+<img class="rounded-full" data-alt="Dr. Sarah Jenkins avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjty252a5CdrCaqPY-MqiDZcGOHvNY_7C6rhp4t58sN3DeopKQQWc8Omg4XTp7fuWG2oeIlFwneWYIIQydb8_FzT_csisjsLoj2S1kLhgJTjYK7AMkPUtgmKbU_aF9-evj2pyMW0U7vDx7EJx19FH5Yk8YGzrY0PStmdW9evVtOfstyC6-GTrQOtSVfMZ2VOxpqtj0cuR2pCqPp-8Dz30WuUlGSuUOR0GyMBVcIUkDSNHaf04--gOQGfS7ZVV-HYRtxDiIINCx_Mo"/>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100">Dr. Sarah Jenkins</p>
+<p class="text-xs text-slate-500">General Practitioner • ID: #44321</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-700 dark:bg-amber-900/20 dark:text-amber-500">
+<span class="size-1.5 rounded-full bg-amber-500"></span>
+                                            Pending
+                                        </span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="flex-1 h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 65%;"></div>
+</div>
+<span class="text-xs font-bold text-slate-700 dark:text-slate-300">65%</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="size-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary/20 hover:text-primary transition-all" title="View Details">
+<span class="material-symbols-outlined text-lg">visibility</span>
+</button>
+<button class="size-8 rounded-full bg-emerald-100 dark:bg-emerald-900/20 flex items-center justify-center text-emerald-600 dark:text-emerald-500 hover:bg-emerald-600 hover:text-white transition-all" title="Approve">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+</button>
+<button class="size-8 rounded-full bg-rose-100 dark:bg-rose-900/20 flex items-center justify-center text-rose-600 dark:text-rose-500 hover:bg-rose-600 hover:text-white transition-all" title="Reject">
+<span class="material-symbols-outlined text-lg">cancel</span>
+</button>
+<button class="size-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-slate-900 dark:hover:bg-slate-100 hover:text-white dark:hover:text-slate-900 transition-all" title="Block">
+<span class="material-symbols-outlined text-lg">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+<img class="rounded-full" data-alt="Nurse Michael Smith avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4s4Td51eL0mkB48qYpjHKU0iIu6afXTxOyKyVJpFkZCxmGPOBnO69Gw0gW3PxUdc8tNmgF8Ysil78O-4ZWRTrNKV27qLPFzpOaSthRWk-FgnGumB1Sny0NSm-a9svEUsZE3IUUydmGXTGnd9jwqP2Db6cFyhLm7sWWSr4w0QU68ZV35K6-19kRCkYYVJf1RFi9hU7BF6k1SUN6rjQus6Uh-j3ywr3driC727JpkZ6VkjEUuvbUds4Tw-mPa3OqF2-msg2XB1mJdw"/>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100">Nurse Michael Smith</p>
+<p class="text-xs text-slate-500">Registered Nurse • ID: #44322</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/20 dark:text-emerald-500">
+<span class="size-1.5 rounded-full bg-emerald-500"></span>
+                                            Verified
+                                        </span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="flex-1 h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-emerald-500 rounded-full" style="width: 100%;"></div>
+</div>
+<span class="text-xs font-bold text-slate-700 dark:text-slate-300">100%</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="size-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary/20 hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg">visibility</span>
+</button>
+<button class="size-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-slate-900 dark:hover:bg-slate-100 hover:text-white dark:hover:text-slate-900 transition-all">
+<span class="material-symbols-outlined text-lg">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center text-red-600">
+<img class="rounded-full" data-alt="James Wilson avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDua-UKetzBASgflimvqjhLEvpt3lkqdv0G18HDn2wJTbTpjZSCOsaWOdrCKBUqlznZLNCE6Byr-z4gudMemPdRJeWdBeljgDf9Yv0dg518bdm4M3R0Fvd7IXcrHXClJy6PglPq_SwYfhm1-9P5gkyFmNTpUkNFeFCM0OSLuhlxpkKhryFsPlpL1KZ3aACJtLQuZdhBIVJ16nkfEiVavv_-gk6pp_-d9n67wcu3sbYTttqSKwH2lOBECfmm_5vNjmaupvybREc_oxY"/>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100">James Wilson</p>
+<p class="text-xs text-slate-500">Physical Therapist • ID: #44323</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400">
+<span class="size-1.5 rounded-full bg-slate-500"></span>
+                                            Blocked
+                                        </span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="flex-1 h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-slate-400 rounded-full" style="width: 20%;"></div>
+</div>
+<span class="text-xs font-bold text-slate-700 dark:text-slate-300">20%</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="size-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary/20 hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg">visibility</span>
+</button>
+<button class="px-4 py-1.5 rounded-full bg-primary text-white text-xs font-bold hover:bg-primary/90 transition-all">Unblock</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+<img class="rounded-full" data-alt="Dr. Elena Rodriguez avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwxuceqNHOdLQXzuaCV3OT2CzSRLfDx6nsY5ABwtUQNOPrYZRBGO9n5e968voaiqzfjbsszChFGJoyL_lDPwP5xR2-CVOV5AYlXUSzjWgLXbrGhuFiO9DsMQnhYykQCGTvuPSgjHZejMgRoCOuihXz7HMNZ9uXF7CkxcIDyxmOBbLeFj70_FxoyRe-gukZ9WN1BPPuSm29BU3e_dUjHfioAzSZPXuc5vMfKje4Z4sAMaoYTd9xkKa0oaJgevdbw0r6ixTf3GNQChQ"/>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100">Dr. Elena Rodriguez</p>
+<p class="text-xs text-slate-500">Pediatrician • ID: #44324</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-700 dark:bg-amber-900/20 dark:text-amber-500">
+<span class="size-1.5 rounded-full bg-amber-500"></span>
+                                            Pending
+                                        </span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="flex-1 h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 85%;"></div>
+</div>
+<span class="text-xs font-bold text-slate-700 dark:text-slate-300">85%</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="size-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary/20 hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg">visibility</span>
+</button>
+<button class="size-8 rounded-full bg-emerald-100 dark:bg-emerald-900/20 flex items-center justify-center text-emerald-600 dark:text-emerald-500 hover:bg-emerald-600 hover:text-white transition-all">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+</button>
+<button class="size-8 rounded-full bg-rose-100 dark:bg-rose-900/20 flex items-center justify-center text-rose-600 dark:text-rose-500 hover:bg-rose-600 hover:text-white transition-all">
+<span class="material-symbols-outlined text-lg">cancel</span>
+</button>
+<button class="size-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-slate-900 dark:hover:bg-slate-100 hover:text-white dark:hover:text-slate-900 transition-all">
+<span class="material-symbols-outlined text-lg">block</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 flex items-center justify-between bg-slate-50/50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-800">
+<p class="text-xs font-medium text-slate-500">Showing <span class="text-slate-900 dark:text-slate-100 font-bold">4</span> of <span class="text-slate-900 dark:text-slate-100 font-bold">248</span> applicants</p>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full border border-slate-200 dark:border-slate-700 text-slate-500 hover:bg-white dark:hover:bg-slate-700 transition-all disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="px-3 py-1 rounded-full bg-primary text-white text-xs font-bold">1</button>
+<button class="px-3 py-1 rounded-full text-xs font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800">2</button>
+<button class="px-3 py-1 rounded-full text-xs font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800">3</button>
+<button class="p-2 rounded-full border border-slate-200 dark:border-slate-700 text-slate-500 hover:bg-white dark:hover:bg-slate-700 transition-all">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

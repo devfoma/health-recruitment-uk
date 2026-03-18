@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthAdmin Portal - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#10b981", /* Medical Green */
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .medical-pattern {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#10b981 0.5px, transparent 0.5px), radial-gradient(#10b981 0.5px, #f8fafc 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.05;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="absolute inset-0 medical-pattern pointer-events-none"></div>
+<div class="layout-container flex h-full grow flex-col z-10">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-6 py-4 md:px-10 lg:px-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md sticky top-0">
+<div class="flex items-center gap-3">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">medical_services</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-tight">HealthAdmin Portal</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex flex-col items-end mr-2">
+<span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Secure Access</span>
+<span class="text-[10px] text-primary">v2.4.0-Enterprise</span>
+</div>
+<div class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-xl">shield_lock</span>
+</div>
+</div>
+</header>
+<main class="flex-1 flex items-center justify-center px-4 py-12">
+<div class="w-full max-w-[440px] bg-white dark:bg-slate-900 rounded-2xl shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 overflow-hidden">
+<div class="h-48 w-full bg-primary/10 relative overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 opacity-20">
+<div class="w-full h-full bg-primary/20" data-alt="Microscopic view of medical cells or dna" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCIK1rwJSICikdzDKoD_3TrtXSnq-HENogrJktLi5WNSNmptNcno_g_OaJuLIakZ09gCu6NH8GzauUM9zc_k71q1dGX-OnmRoNIs0aCPq-zzjb4hM67-tOJ81cf_lmBJH92M6v656rkBdhhTAtcg4yk8OusFZZPnXUJIcG96ppNbW20uXu0JNAiX7WD2gVC6eyEDrC8y2B1CYARhMHfs6RiP54YUQnbAbIhgdOy2R5BDmu016ZiWsje6422eBL1K-NPq1rpx_Jf-0Q'); background-size: cover; background-position: center;"></div>
+</div>
+<div class="relative z-10 bg-white dark:bg-slate-800 p-4 rounded-full shadow-lg border-4 border-primary/20">
+<span class="material-symbols-outlined text-5xl text-primary">admin_panel_settings</span>
+</div>
+</div>
+<div class="p-8">
+<div class="text-center mb-8">
+<h1 class="text-slate-900 dark:text-white text-3xl font-bold leading-tight mb-2">Admin Login</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Access the Health Recruitment UK management console</p>
+</div>
+<form action="#" class="space-y-5" method="POST">
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1">Email Address</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 group-focus-within:text-primary transition-colors">mail</span>
+</div>
+<input class="w-full pl-11 pr-4 py-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-slate-900 dark:text-white placeholder:text-slate-400" placeholder="admin@healthrecruitment.uk" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center ml-1">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Password</label>
+<a class="text-xs font-medium text-primary hover:underline" href="#">Forgot password?</a>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 group-focus-within:text-primary transition-colors">lock</span>
+</div>
+<input class="w-full pl-11 pr-4 py-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-slate-900 dark:text-white placeholder:text-slate-400" placeholder="••••••••••••" type="password"/>
+<div class="absolute inset-y-0 right-0 pr-4 flex items-center cursor-pointer">
+<span class="material-symbols-outlined text-slate-400 hover:text-slate-600">visibility</span>
+</div>
+</div>
+</div>
+<div class="flex items-center space-x-2 px-1">
+<input class="w-4 h-4 rounded border-slate-300 text-primary focus:ring-primary" id="remember" type="checkbox"/>
+<label class="text-sm text-slate-600 dark:text-slate-400" for="remember">Keep me logged in for 30 days</label>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-full transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2 mt-4 group" type="submit">
+<span>Login</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</form>
+</div>
+<div class="px-8 pb-8 pt-2">
+<div class="flex items-center gap-2 justify-center text-xs text-slate-400">
+<span class="material-symbols-outlined text-[14px]">verified_user</span>
+<span>AES-256 Encrypted Connection</span>
+</div>
+</div>
+</div>
+</main>
+<footer class="py-6 px-10 text-center text-slate-400 text-xs mt-auto">
+<div class="flex justify-center gap-6 mb-2">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Support</a>
+</div>
+<p>© 2024 Health Recruitment UK. All rights reserved.</p>
+</footer>
+</div>
+</div>
+</body></html>

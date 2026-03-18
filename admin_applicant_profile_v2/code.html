@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Applicant Profile Detail | Medical Admin Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between border-b border-primary/10 bg-white dark:bg-slate-900 px-6 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<div class="bg-primary/10 p-2 rounded-full text-primary">
+<span class="material-symbols-outlined text-2xl">medical_services</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">HealthAdmin <span class="text-primary">Portal</span></h2>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">search</span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors relative">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">notifications</span>
+<span class="absolute top-2 right-2 flex h-2 w-2 rounded-full bg-red-500"></span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary/20 border border-primary/50 overflow-hidden" data-alt="Admin user avatar portrait">
+<img alt="Admin Profile" class="h-full w-full object-cover" data-alt="Doctor administrator profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEht8AS_PUG5FLrdMAGkrFRS3rRu0bv_pKO0_GR_eTif7xamhy26d2QofwK1rohMooh97T5aOKTAEdNqy-pL4v_SoQBskRBWtcTdOnTqTMSqhd_vHAwB7QCMmcekRzPpe3lrxXKzv9BS_TrhBVoImZD1QsLhiGcuT1dyHOtagqKU0exv2OGv8kFp3xoaNLlv5PciJcOQtBqoddYNE98VSA03LPQ5SPE-bKwmYTqDwsdvSwgo2Nuh4lxIoHAJdtBL-J_f0QTjdGovc"/>
+</div>
+</div>
+</header>
+<main class="flex-1 flex max-w-7xl mx-auto w-full gap-8 p-6 lg:px-10">
+<!-- Sidebar Navigation -->
+<aside class="hidden lg:flex w-64 flex-col gap-6">
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-full hover:bg-primary/5 text-slate-600 dark:text-slate-400 transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full bg-primary text-white transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium">Applicants</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full hover:bg-primary/5 text-slate-600 dark:text-slate-400 transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-medium">Documents</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full hover:bg-primary/5 text-slate-600 dark:text-slate-400 transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-medium">Transactions</span>
+</a>
+<div class="my-4 border-t border-primary/10"></div>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full hover:bg-primary/5 text-slate-600 dark:text-slate-400 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium">System Settings</span>
+</a>
+</nav>
+<div class="mt-auto bg-primary/5 p-4 rounded-xl border border-primary/10 rounded-2xl">
+<p class="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Verification Progress</p>
+<div class="w-full bg-primary/20 rounded-full h-2 mb-3">
+<div class="bg-primary h-2 rounded-full" style="width: 65%"></div>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-400">124 pending applications this week.</p>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col gap-8 pb-12">
+<!-- Header Profile Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 bg-white dark:bg-slate-900 p-6 rounded-xl border border-primary/10 shadow-sm rounded-2xl">
+<div class="flex items-center gap-6">
+<div class="h-24 w-24 rounded-full border-4 border-primary/20 p-1">
+<img class="h-full w-full object-cover rounded-full" data-alt="Portrait of applicant Sarah Jenkins" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW5x-obdeBBqjKQJ7s0b3wC-ob3eH_N1SoDakxkR1VKB8NbiffaINEDPIbPLGLAKgRKUhdeWG_Tk3WryYOpJkZIUGI9xzn3RAweVcDIruvbO-z8Ju-vzeGR8f1Hapl1kPbJQ39SXa96wt5O5q-ZRKTbQ17IXM9_bmMREvcYyr6e3m4Fgb3cm9pQNsMctVeH8bS7TrHpYga2H8txVzTWHIA2dOGns8eGxgGAkkC0fw5li3oGEs030wIWm1C2PEOGHvyUE_0IBLD9vU"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-3">
+<h1 class="text-2xl font-bold">Benjamin Carter</h1>
+<span class="px-3 py-1 bg-yellow-100 text-yellow-700 text-xs font-bold rounded-full uppercase">Review Required</span>
+</div>
+<p class="text-slate-500 text-sm">Application ID: <span class="font-mono font-medium">APP-7729-2024</span></p>
+<p class="text-slate-500 text-sm flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-sm">calendar_month</span> Applied October 12, 2024
+                        </p>
+</div>
+</div>
+<div class="flex flex-wrap gap-2">
+<button class="px-6 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 font-semibold rounded-full transition-all text-sm">
+                        Suspend
+                    </button>
+<button class="px-6 py-2.5 bg-red-100 hover:bg-red-200 text-red-600 font-semibold rounded-full transition-all text-sm">
+                        Reject
+                    </button>
+<button class="px-6 py-2.5 bg-primary hover:bg-primary/90 text-white font-semibold rounded-full shadow-lg shadow-primary/20 transition-all text-sm">
+                        Approve Applicant
+                    </button>
+</div>
+</div>
+<!-- Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Personal Info & Identity -->
+<div class="lg:col-span-2 flex flex-col gap-8">
+<!-- Personal Information -->
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-primary/10 shadow-sm overflow-hidden rounded-2xl">
+<div class="px-6 py-4 border-b border-primary/5 bg-primary/5 flex items-center justify-between">
+<h3 class="font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">badge</span> Personal Information
+                            </h3>
+<button class="text-primary hover:underline text-sm font-medium">Edit Details</button>
+</div>
+<div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-1">
+<p class="text-xs text-slate-500 uppercase font-semibold">Full Name</p>
+<p class="font-medium text-slate-900 dark:text-slate-100">Benjamin Alexander Carter</p>
+</div>
+<div class="space-y-1">
+<p class="text-xs text-slate-500 uppercase font-semibold">Email Address</p>
+<p class="font-medium text-slate-900 dark:text-slate-100">b.carter@healthcare.com</p>
+</div>
+<div class="space-y-1">
+<p class="text-xs text-slate-500 uppercase font-semibold">Phone Number</p>
+<p class="font-medium text-slate-900 dark:text-slate-100">+1 (555) 932-1102</p>
+</div>
+<div class="space-y-1">
+<p class="text-xs text-slate-500 uppercase font-semibold">Date of Birth</p>
+<p class="font-medium text-slate-900 dark:text-slate-100">March 14, 1988 (36 yrs)</p>
+</div>
+<div class="space-y-1">
+<p class="text-xs text-slate-500 uppercase font-semibold">Home Address</p>
+<p class="font-medium text-slate-900 dark:text-slate-100">4228 Medical Dr, San Antonio, TX 78229</p>
+</div>
+<div class="space-y-1">
+<p class="text-xs text-slate-500 uppercase font-semibold">Nationality</p>
+<p class="font-medium text-slate-900 dark:text-slate-100">United States</p>
+</div>
+</div>
+</section>
+<!-- Identity Verification -->
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-primary/10 shadow-sm overflow-hidden rounded-2xl">
+<div class="px-6 py-4 border-b border-primary/5 bg-primary/5">
+<h3 class="font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">verified_user</span> Identity Verification
+                            </h3>
+</div>
+<div class="p-6">
+<div class="flex flex-col md:flex-row items-center gap-8">
+<div class="relative">
+<div class="w-32 h-32 rounded-full border-4 border-green-500/30 flex items-center justify-center p-1">
+<div class="w-full h-full rounded-full bg-green-50 dark:bg-green-900/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-green-500">face</span>
+</div>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-green-500 text-white rounded-full p-1 border-2 border-white dark:border-slate-900">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+</div>
+<div class="flex-1 space-y-4 text-center md:text-left">
+<div>
+<h4 class="text-lg font-bold">Facial Biometrics Match</h4>
+<p class="text-sm text-slate-500">The live selfie match score is 98.4% against the provided Passport photo.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-slate-50 dark:bg-slate-800 p-3 rounded-lg border border-slate-200 dark:border-slate-700">
+<p class="text-xs text-slate-500 uppercase">Document Legitimacy</p>
+<p class="font-bold text-green-600 text-sm">Verified (AI Check)</p>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800 p-3 rounded-lg border border-slate-200 dark:border-slate-700">
+<p class="text-xs text-slate-500 uppercase">Background Check</p>
+<p class="font-bold text-slate-500 text-sm">In Progress</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Documents & Payments -->
+<div class="flex flex-col gap-8">
+<!-- Uploaded Documents -->
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-primary/10 shadow-sm overflow-hidden rounded-2xl">
+<div class="px-6 py-4 border-b border-primary/5 bg-primary/5 flex items-center justify-between">
+<h3 class="font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">folder_open</span> Documents
+                            </h3>
+<span class="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full font-bold">3 Uploaded</span>
+</div>
+<div class="p-4 space-y-3">
+<div class="group p-3 rounded-lg border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-all bg-slate-50/50 dark:bg-slate-800/50 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-blue-100 text-blue-600 rounded">
+<span class="material-symbols-outlined text-xl">description</span>
+</div>
+<div>
+<p class="text-sm font-semibold">Passport Copy</p>
+<p class="text-[10px] text-slate-400 uppercase">PDF • 2.4 MB</p>
+</div>
+</div>
+<span class="px-2 py-0.5 bg-green-100 text-green-700 text-[10px] font-bold rounded-full">APPROVED</span>
+</div>
+<div class="group p-3 rounded-lg border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-all bg-slate-50/50 dark:bg-slate-800/50 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-orange-100 text-orange-600 rounded">
+<span class="material-symbols-outlined text-xl">description</span>
+</div>
+<div>
+<p class="text-sm font-semibold">Birth Certificate</p>
+<p class="text-[10px] text-slate-400 uppercase">JPG • 1.1 MB</p>
+</div>
+</div>
+<span class="px-2 py-0.5 bg-yellow-100 text-yellow-700 text-[10px] font-bold rounded-full">PENDING</span>
+</div>
+<div class="group p-3 rounded-lg border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-all bg-slate-50/50 dark:bg-slate-800/50 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-purple-100 text-purple-600 rounded">
+<span class="material-symbols-outlined text-xl">medical_information</span>
+</div>
+<div>
+<p class="text-sm font-semibold">Medical License</p>
+<p class="text-[10px] text-slate-400 uppercase">PDF • 4.8 MB</p>
+</div>
+</div>
+<span class="px-2 py-0.5 bg-red-100 text-red-700 text-[10px] font-bold rounded-full">INVALID</span>
+</div>
+</div>
+</section>
+<!-- Payment History -->
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-primary/10 shadow-sm overflow-hidden rounded-2xl">
+<div class="px-6 py-4 border-b border-primary/5 bg-primary/5">
+<h3 class="font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">receipt_long</span> Payment History
+                            </h3>
+</div>
+<div class="divide-y divide-slate-100 dark:divide-slate-800">
+<div class="p-4 flex justify-between items-center">
+<div>
+<p class="text-sm font-semibold">Application Fee</p>
+<p class="text-xs text-slate-500">Oct 12, 2024 • Visa 4421</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">$150.00</p>
+<p class="text-[10px] text-green-500 font-bold">SUCCESS</p>
+</div>
+</div>
+<div class="p-4 flex justify-between items-center">
+<div>
+<p class="text-sm font-semibold">Background Check</p>
+<p class="text-xs text-slate-500">Oct 14, 2024 • Visa 4421</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">$45.00</p>
+<p class="text-[10px] text-green-500 font-bold">SUCCESS</p>
+</div>
+</div>
+</div>
+<div class="p-4 bg-slate-50 dark:bg-slate-800/50 text-center">
+<button class="text-primary text-xs font-bold hover:underline flex items-center gap-1 mx-auto">
+<span class="material-symbols-outlined text-sm">print</span> View All Receipts
+                            </button>
+</div>
+</section>
+</div>
+</div>
+<!-- Notes Section -->
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-primary/10 shadow-sm overflow-hidden rounded-2xl">
+<div class="px-6 py-4 border-b border-primary/5 bg-primary/5">
+<h3 class="font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">history_edu</span> Admin Notes
+                    </h3>
+</div>
+<div class="p-6">
+<div class="flex flex-col gap-4">
+<div class="p-4 rounded-lg bg-yellow-50 dark:bg-yellow-900/10 border border-yellow-200 dark:border-yellow-900/30">
+<div class="flex justify-between mb-2">
+<p class="text-xs font-bold text-yellow-800 dark:text-yellow-600">Reviewer: Dr. Sarah Smith</p>
+<p class="text-[10px] text-yellow-700/60">Oct 14, 2024 • 09:42 AM</p>
+</div>
+<p class="text-sm text-yellow-900 dark:text-yellow-100 italic">"Medical license upload seems to be for a different state than the application. Please request clarification or a current license for TX."</p>
+</div>
+<textarea class="w-full rounded-2xl border-slate-200 dark:border-slate-700 dark:bg-slate-800 text-sm focus:ring-primary focus:border-primary p-4" placeholder="Add a private note regarding this applicant..." rows="3"></textarea>
+<div class="flex justify-end">
+<button class="px-6 py-2 bg-primary text-white font-bold rounded-full text-sm">Save Note</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer Meta -->
+<footer class="bg-white dark:bg-slate-900 border-t border-primary/10 py-6 px-10">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
+<p>© 2024 Medical Admin Management System. All Rights Reserved.</p>
+<div class="flex gap-6 mt-4 md:mt-0">
+<a class="hover:text-primary" href="#">Data Security Policy</a>
+<a class="hover:text-primary" href="#">HIPAA Compliance</a>
+<a class="hover:text-primary" href="#">Support Desk</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

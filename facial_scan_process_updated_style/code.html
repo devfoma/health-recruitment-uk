@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Health Recruitment UK - Identity Verification</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#10b981",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "success-medical": "#10b981"
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .face-overlay {
+            mask: radial-gradient(ellipse 160px 220px at center, transparent 100%, black 100%);
+            -webkit-mask: radial-gradient(ellipse 160px 220px at center, transparent 100%, black 100%);
+        }
+        .scan-line {
+            background: linear-gradient(to bottom, transparent, #10b981, transparent);
+            height: 2px;
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 0;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex h-screen w-full flex-col overflow-hidden">
+<header class="flex items-center bg-white/80 dark:bg-slate-900/80 backdrop-blur-md p-4 pb-2 justify-between z-20">
+<div class="text-slate-900 dark:text-slate-100 flex size-12 shrink-0 items-center cursor-pointer" data-icon="ArrowLeft">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight">Identity Verification</h2>
+<p class="text-xs text-slate-500 font-medium uppercase tracking-widest">Health Recruitment UK</p>
+</div>
+<div class="size-12 flex items-center justify-end">
+<span class="material-symbols-outlined text-success-medical">verified_user</span>
+</div>
+</header>
+<div class="flex flex-col gap-3 p-4 bg-white dark:bg-slate-900 z-20 border-b border-slate-200 dark:border-slate-800">
+<div class="flex gap-6 justify-between items-end">
+<p class="text-slate-900 dark:text-slate-100 text-sm font-semibold leading-normal">Step 2 of 3</p>
+<p class="text-primary text-xs font-bold leading-normal uppercase">Liveness Check</p>
+</div>
+<div class="rounded-full bg-slate-200 dark:bg-slate-700 h-2 overflow-hidden">
+<div class="h-2 rounded-full bg-primary" style="width: 66%;"></div>
+</div>
+</div>
+<main class="relative flex-1 flex flex-col items-center justify-center bg-black overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Background" class="w-full h-full object-cover opacity-60 blur-sm" data-alt="Blurred hospital interior medical environment background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD19HTcfE6HL6Z0bVtSgOC_9HGcN6VsyNJxUgzB2uVwaBk82kCQmnmoZZ8A4PtfoFRghT-kdMLO4Sl8Zb7SvZak8aFI8dU3aeNEQG2l6tZsrm37dHxLWKneX8aUbv0UYVpMm77jPfsGYNdQYlhoFK7kxsgWBzMegbQSB7Kr-Q2Bk7j8M6w357A4mKABelRAwC4gFz56xr7I0GmCECy1xlfYTnuIz-pxdw24bgIwg0LBW8ESvfA2xiKmlFNu5Jy91KlQcp7-hpZflHk"/>
+</div>
+<div class="absolute inset-0 z-10 bg-black/40 face-overlay"></div>
+<div class="relative z-10 w-[240px] h-[320px] border-2 border-success-medical/50 rounded-[120px/160px] flex items-center justify-center">
+<div class="absolute -top-2 -left-2 w-8 h-8 border-t-4 border-l-4 border-success-medical rounded-tl-3xl"></div>
+<div class="absolute -top-2 -right-2 w-8 h-8 border-t-4 border-right-4 border-success-medical rounded-tr-3xl" style="border-right-width: 4px;"></div>
+<div class="absolute -bottom-2 -left-2 w-8 h-8 border-b-4 border-l-4 border-success-medical rounded-bl-3xl"></div>
+<div class="absolute -bottom-2 -right-2 w-8 h-8 border-b-4 border-right-4 border-success-medical rounded-br-3xl" style="border-right-width: 4px;"></div>
+<div class="scan-line opacity-40"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none flex items-center justify-center">
+<span class="material-symbols-outlined text-white/20 text-8xl">face</span>
+</div>
+</div>
+<div class="absolute top-8 left-0 right-0 z-20 flex flex-col items-center px-6 pointer-events-none">
+<div class="bg-black/60 backdrop-blur-md px-6 py-3 rounded-full border border-white/10">
+<h3 class="text-white tracking-tight text-xl font-bold leading-tight text-center">Center your face</h3>
+</div>
+</div>
+<div class="absolute bottom-32 left-0 right-0 z-20 flex flex-col items-center px-10 pointer-events-none">
+<div class="flex items-center gap-3 bg-success-medical/20 backdrop-blur-md px-4 py-2 rounded-lg border border-success-medical/40">
+<span class="material-symbols-outlined text-success-medical animate-pulse">visibility</span>
+<p class="text-white text-base font-medium leading-normal text-center">Blink to verify when the frame turns green</p>
+</div>
+</div>
+</main>
+<footer class="bg-white dark:bg-slate-900 p-6 z-20 flex flex-col gap-4">
+<div class="flex items-center justify-center gap-8">
+<button class="flex flex-col items-center gap-1 group">
+<div class="flex shrink-0 items-center justify-center rounded-full size-12 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 group-active:scale-95 transition-transform">
+<span class="material-symbols-outlined">light_mode</span>
+</div>
+<span class="text-[10px] font-bold uppercase text-slate-500">FLASH</span>
+</button>
+<button class="flex shrink-0 items-center justify-center rounded-full size-20 bg-primary text-white shadow-lg ring-4 active:scale-90 transition-transform shadow-emerald-500/40 ring-emerald-500/20">
+<span class="material-symbols-outlined text-4xl">photo_camera</span>
+</button>
+<button class="flex flex-col items-center gap-1 group">
+<div class="flex shrink-0 items-center justify-center rounded-full size-12 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 group-active:scale-95 transition-transform">
+<span class="material-symbols-outlined">help</span>
+</div>
+<span class="text-[10px] font-bold uppercase text-slate-500">GUIDE</span>
+</button>
+</div>
+<div class="flex items-center justify-center gap-2 mt-2">
+<span class="material-symbols-outlined text-slate-400 text-sm">lock</span>
+<p class="text-slate-400 text-[11px] font-medium uppercase tracking-tighter">Secure 256-bit Encrypted Biometric Scan</p>
+</div>
+</footer>
+</div>
+</body></html>

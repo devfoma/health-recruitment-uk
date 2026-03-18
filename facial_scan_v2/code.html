@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "medical-green": "#10b981",
+                        "medical-teal": "#0f766e"
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Facial Scan - Health Recruitment UK</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden">
+<!-- Header -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between border-b border-slate-200 dark:border-slate-800">
+<div class="text-slate-900 dark:text-slate-100 flex size-12 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-12">Identity Verification</h2>
+</div>
+<!-- Instructions -->
+<div class="flex flex-col items-center px-6 pt-8 pb-4">
+<h3 class="text-slate-900 dark:text-slate-100 text-2xl font-bold leading-tight text-center">Position your face in the circle</h3>
+<p class="text-slate-600 dark:text-slate-400 text-base font-normal leading-normal pt-2 text-center max-w-xs">
+                Health Recruitment UK requires a facial scan to verify your medical credentials.
+            </p>
+</div>
+<!-- Camera Interface -->
+<div class="flex flex-1 flex-col items-center justify-center p-4 min-h-[400px]">
+<div class="relative w-72 h-72 md:w-80 md:h-80">
+<!-- Circular Frame -->
+<div class="absolute inset-0 rounded-full border-4 border-medical-green shadow-[0_0_20px_rgba(16,185,129,0.4)] flex items-center justify-center overflow-hidden bg-slate-200 dark:bg-slate-800">
+<!-- Placeholder for Camera Feed -->
+<div class="w-full h-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-600 !text-8xl">account_circle</span>
+</div>
+<!-- Scanning Overlay Line -->
+<div class="absolute top-1/4 left-0 w-full h-1 bg-medical-green/60 shadow-[0_0_15px_#10b981] z-10"></div>
+</div>
+<!-- Corner Indicators -->
+<div class="absolute -top-2 -left-2 w-8 h-8 border-t-4 border-l-4 border-medical-teal rounded-tl-xl"></div>
+<div class="absolute -top-2 -right-2 w-8 h-8 border-t-4 border-r-4 border-medical-teal rounded-tr-xl"></div>
+<div class="absolute -bottom-2 -left-2 w-8 h-8 border-b-4 border-l-4 border-medical-teal rounded-bl-xl"></div>
+<div class="absolute -bottom-2 -right-2 w-8 h-8 border-b-4 border-r-4 border-medical-teal rounded-br-xl"></div>
+</div>
+</div>
+<!-- Camera Controls -->
+<div class="flex items-center justify-center gap-8 p-6">
+<button class="flex shrink-0 items-center justify-center rounded-full size-12 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined">light_mode</span>
+</button>
+<button class="flex shrink-0 items-center justify-center rounded-full size-20 bg-medical-green text-white shadow-lg shadow-medical-green/30 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined !text-4xl">photo_camera</span>
+</button>
+<button class="flex shrink-0 items-center justify-center rounded-full size-12 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined">flip_camera_ios</span>
+</button>
+</div>
+<!-- Progress Section -->
+<div class="mt-auto w-full max-w-md mx-auto p-6 bg-white dark:bg-slate-900 rounded-t-3xl shadow-2xl">
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-medical-teal">verified_user</span>
+<p class="text-slate-900 dark:text-slate-100 text-base font-semibold">Scanning Progress</p>
+</div>
+<p class="text-medical-teal text-sm font-bold">72%</p>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 h-3 rounded-full overflow-hidden">
+<div class="bg-medical-green h-full rounded-full transition-all duration-500" style="width: 72%;"></div>
+</div>
+<div class="flex items-center gap-3 py-2 px-3 bg-medical-green/10 rounded-lg">
+<span class="material-symbols-outlined text-medical-green text-sm">info</span>
+<p class="text-medical-teal text-sm font-medium leading-tight">
+                        Keep your head steady and ensure your face is well lit.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Bottom Spacer -->
+<div class="h-6 bg-white dark:bg-slate-900"></div>
+</div>
+</body></html>

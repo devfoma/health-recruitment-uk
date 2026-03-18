@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Health Recruitment UK - Admin Access Control</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#10b981", // Medical Emerald Green
+                        "background-light": "#f0fdf4", // Very light green tint
+                        "background-dark": "#064e3b", // Deep forest green
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-200">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col shrink-0">
+<div class="p-6 flex items-center gap-3">
+<div class="bg-primary rounded-full p-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-2xl">health_and_safety</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-primary font-bold text-lg leading-tight">HRUK Admin</h1>
+<p class="text-slate-500 dark:text-slate-400 text-xs">Health Recruitment UK</p>
+</div>
+</div>
+<nav class="flex-1 px-4 py-4 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-all rounded-full" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-all rounded-full" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium">Applicants</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-all rounded-full" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-medium">Job Postings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary text-white shadow-lg shadow-primary/20 transition-all rounded-full" href="#">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span class="font-medium">Access Control</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-all rounded-full" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 p-2">
+<img alt="Admin user avatar" class="w-10 h-10 rounded-full border-2 border-primary/20" data-alt="Profile picture of the logged in administrator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVvARw8FjofS2ud4V4VxF0WTTpQJRR4AcHUzC4fb6DQnXDoNPAbsQ5W0wUIhsY9LKWilBSc2Q1XnalQ8NX65pi49DRtqorGqlj5fwm2aCcUaGh6-gRL1lT_HOJd2hlrw2Yll0hIiHIWNW5MAy-OZlAQ78AhOZi2zKi74jufFQxjWSpZHBn5Rry9lEEIp5Rw7gRgmLCg7IKd5HnTKSSpSsRAjs71ObJhc9CnrRuRaO35R7vc6x4Yf9y0S8r9c14k1nOB4iCcbrGebc"/>
+<div class="flex flex-col">
+<span class="text-sm font-bold">Dr. Amanda Lee</span>
+<span class="text-xs text-slate-500">Super Admin</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col overflow-hidden">
+<!-- Header -->
+<header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 shrink-0">
+<div class="flex items-center gap-4">
+<h2 class="text-xl font-bold tracking-tight">Access Control</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-full text-sm w-64 focus:ring-2 focus:ring-primary" placeholder="Global system search..." type="text"/>
+</div>
+<button class="relative p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-900"></span>
+</button>
+</div>
+</header>
+<!-- Content Scrollable -->
+<div class="flex-1 overflow-y-auto p-8 flex flex-col gap-8">
+<!-- Page Hero -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="max-w-2xl">
+<h1 class="text-3xl font-black text-slate-900 dark:text-white">User Management</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-2">Oversee administrative permissions, monitor account security, and enforce system-wide access policies.</p>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-full font-bold flex items-center gap-2 shadow-lg shadow-primary/20 transition-all">
+<span class="material-symbols-outlined">person_add</span>
+                        Invite New Admin
+                    </button>
+</div>
+<!-- Filters and Search -->
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 flex flex-wrap gap-4 items-center">
+<div class="flex-1 min-w-[300px] relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">person_search</span>
+<input class="w-full pl-11 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Search by name, email or staff ID..." type="text"/>
+</div>
+<div class="flex gap-2">
+<select class="bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-full px-4 py-2 text-sm focus:ring-primary">
+<option>All Roles</option>
+<option>Super Admin</option>
+<option>Recruiter</option>
+<option>Editor</option>
+</select>
+<select class="bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-full px-4 py-2 text-sm focus:ring-primary">
+<option>Any Status</option>
+<option>Active</option>
+<option>Suspended</option>
+<option>Banned</option>
+</select>
+</div>
+</div>
+<!-- User Table -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-300 border-b border-slate-200 dark:border-slate-800">
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider">User</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider">Email</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider">Role</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 bg-primary/20 text-primary font-bold flex items-center justify-center rounded-full text-xs">SJ</div>
+<span class="font-semibold">Sarah Jenkins</span>
+</div>
+</td>
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">sarah.j@hruk.com</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-xs font-bold">Senior Recruiter</span>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1.5 text-primary">
+<span class="w-2 h-2 bg-primary rounded-full"></span>
+<span class="text-sm font-medium">Active</span>
+</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 text-slate-400 hover:text-amber-500 hover:bg-amber-50 rounded-full transition-all" title="Suspend Account">
+<span class="material-symbols-outlined text-xl">pause_circle</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-primary hover:bg-primary/5 rounded-full transition-all" title="Disable Login">
+<span class="material-symbols-outlined text-xl">no_accounts</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-full transition-all" title="Ban User">
+<span class="material-symbols-outlined text-xl">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 bg-slate-200 dark:bg-slate-700 text-slate-500 flex items-center justify-center rounded-full text-xs font-bold">MT</div>
+<span class="font-semibold">Mark Thompson</span>
+</div>
+</td>
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">m.thompson@hruk.com</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-full text-xs font-bold">Admin</span>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1.5 text-amber-500">
+<span class="w-2 h-2 bg-amber-500 rounded-full"></span>
+<span class="text-sm font-medium">Suspended</span>
+</span>
+</td>
+<td class="px-6 py-4 text-right text-sm">
+<button class="text-primary font-bold hover:underline">Reactivate</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 bg-primary/20 text-primary font-bold flex items-center justify-center rounded-full text-xs">EW</div>
+<span class="font-semibold">Emma Wilson</span>
+</div>
+</td>
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">e.wilson@hruk.com</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-full text-xs font-bold">Junior Staff</span>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1.5 text-red-500">
+<span class="w-2 h-2 bg-red-500 rounded-full"></span>
+<span class="text-sm font-medium">Banned</span>
+</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="px-3 py-1 border border-slate-200 dark:border-slate-700 rounded-full text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800">Review Case</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="p-4 bg-slate-50 dark:bg-slate-800/50 flex items-center justify-between">
+<span class="text-sm text-slate-500">Showing 3 of 42 users</span>
+<div class="flex gap-2">
+<button class="px-4 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-full text-xs font-bold opacity-50 cursor-not-allowed">Previous</button>
+<button class="px-4 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-full text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800">Next</button>
+</div>
+</div>
+</div>
+<!-- Global Settings & Security Rules -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Global Settings -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800">
+<h3 class="font-bold text-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">security</span>
+                                Global Security Rules
+                            </h3>
+</div>
+<div class="p-6 flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<div>
+<h4 class="font-semibold">Multi-Factor Authentication</h4>
+<p class="text-sm text-slate-500">Require MFA for all administrative accounts</p>
+</div>
+<div class="w-12 h-6 bg-primary rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<h4 class="font-semibold">Session Timeout</h4>
+<p class="text-sm text-slate-500">Auto logout after 30 minutes of inactivity</p>
+</div>
+<select class="bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-full px-4 py-1.5 text-sm focus:ring-primary">
+<option>15 mins</option>
+<option selected="">30 mins</option>
+<option>1 hour</option>
+</select>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<h4 class="font-semibold">IP Restricted Access</h4>
+<p class="text-sm text-slate-500">Allow login only from verified office networks</p>
+</div>
+<div class="w-12 h-6 bg-slate-300 dark:bg-slate-700 rounded-full relative cursor-pointer">
+<div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- System Logs Summary -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800">
+<h3 class="font-bold text-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">history</span>
+                                Recent Audit Logs
+                            </h3>
+</div>
+<div class="p-6 flex flex-col gap-4">
+<div class="flex gap-4 items-start">
+<div class="p-2 bg-amber-50 text-amber-600 rounded-lg">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<div>
+<p class="text-sm font-medium"><span class="font-bold">Mark Thompson's</span> account was suspended by system</p>
+<p class="text-xs text-slate-400 mt-1">2 hours ago • Reason: Repeated failed logins</p>
+</div>
+</div>
+<div class="flex gap-4 items-start border-t border-slate-100 dark:border-slate-800 pt-4">
+<div class="p-2 bg-primary/10 text-primary rounded-lg">
+<span class="material-symbols-outlined">key</span>
+</div>
+<div>
+<p class="text-sm font-medium"><span class="font-bold">Emma Wilson</span> reset her password</p>
+<p class="text-xs text-slate-400 mt-1">5 hours ago • IP: 192.168.1.45</p>
+</div>
+</div>
+<div class="flex gap-4 items-start border-t border-slate-100 dark:border-slate-800 pt-4">
+<div class="p-2 bg-blue-50 text-blue-600 rounded-lg">
+<span class="material-symbols-outlined">shield_person</span>
+</div>
+<div>
+<p class="text-sm font-medium"><span class="font-bold">Sarah Jenkins</span> promoted to Senior Recruiter</p>
+<p class="text-xs text-slate-400 mt-1">Yesterday at 4:30 PM • Action by: Dr. Amanda Lee</p>
+</div>
+</div>
+<button class="w-full text-center py-2 text-sm font-bold text-primary hover:bg-primary/5 rounded-full mt-2 transition-all">View All Activity Logs</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
