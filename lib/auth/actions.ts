@@ -9,7 +9,12 @@ import {
   deleteSession,
   getUserById,
   addUser,
+  generateVerificationCode,
+  storeVerificationCode,
+  verifyCode,
+  markUserAsVerified,
 } from "./mock-data";
+import { sendVerificationEmail } from "../email/resend";
 import type { User } from "./types";
 
 const SESSION_COOKIE = "health_recruit_session";
@@ -91,6 +96,17 @@ export async function register(
     isVerified: false,
   });
 
+  // Generate and store verification code
+  const verificationCode = generateVerificationCode();
+  storeVerificationCode(user.id, verificationCode);
+
+  // Send verification email
+  const emailResult = await sendVerificationEmail(email, verificationCode, fullName);
+  if (!emailResult.success) {
+    console.error("Failed to send verification email:", emailResult.error);
+    // Continue anyway - user can resend
+  }
+
   const sessionId = createSession(user.id);
   const cookieStore = await cookies();
   cookieStore.set(SESSION_COOKIE, sessionId, {
@@ -156,4 +172,65 @@ export async function requireApplicant(): Promise<User> {
     redirect("/admin");
   }
   return user;
+}
+
+export async function verifyAccount(
+  code: string
+): Promise<{ success: boolean; error?: string }> {
+  const user = await getCurrentUser();
+
+  if (!user) {
+    return { success: false, error: "Not authenticated" };
+  }
+
+  if (user.isVerified) {
+    return { success: true };
+  }
+
+  const result = verifyCode(user.id, code);
+
+  if (!result.valid) {
+    return { success: false, error: result.error };
+  }
+
+  markUserAsVerified(user.id);
+  return { success: true };
+}
+
+export async function resendVerificationCode(): Promise<{
+  success: boolean;
+  error?: string;
+}> {
+  const user = await getCurrentUser();
+
+  if (!user) {
+    return { success: false, error: "Not authenticated" };
+  }
+
+  if (user.isVerified) {
+    return { success: false, error: "Account is already verified" };
+  }
+
+  // Generate and store new verification code
+  const verificationCode = generateVerificationCode();
+  storeVerificationCode(user.id, verificationCode);
+
+  // Get full user data including email
+  const fullUser = getUserByEmail(user.email);
+  if (!fullUser) {
+    return { success: false, error: "User not found" };
+  }
+
+  // Send verification email
+  const emailResult = await sendVerificationEmail(
+    user.email,
+    verificationCode,
+    user.fullName
+  );
+
+  if (!emailResult.success) {
+    return { success: false, error: "Failed to send verification email" };
+  }
+
+  return { success: true };
 }

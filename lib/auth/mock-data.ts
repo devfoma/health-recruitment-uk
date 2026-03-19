@@ -29,6 +29,51 @@ export const mockUsers: (User & { password: string })[] = [
 // Simple session storage (in production, use secure HTTP-only cookies with JWT or session tokens)
 const sessions = new Map<string, { userId: string; expiresAt: Date }>();
 
+// Verification codes storage
+const verificationCodes = new Map<
+  string,
+  { code: string; expiresAt: Date; userId: string }
+>();
+
+export function generateVerificationCode(): string {
+  return Math.floor(100000 + Math.random() * 900000).toString();
+}
+
+export function storeVerificationCode(userId: string, code: string): void {
+  const expiresAt = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
+  verificationCodes.set(userId, { code, expiresAt, userId });
+}
+
+export function verifyCode(
+  userId: string,
+  code: string
+): { valid: boolean; error?: string } {
+  const stored = verificationCodes.get(userId);
+
+  if (!stored) {
+    return { valid: false, error: "No verification code found. Please request a new one." };
+  }
+
+  if (stored.expiresAt < new Date()) {
+    verificationCodes.delete(userId);
+    return { valid: false, error: "Verification code has expired. Please request a new one." };
+  }
+
+  if (stored.code !== code) {
+    return { valid: false, error: "Invalid verification code. Please try again." };
+  }
+
+  verificationCodes.delete(userId);
+  return { valid: true };
+}
+
+export function markUserAsVerified(userId: string): void {
+  const user = mockUsers.find((u) => u.id === userId);
+  if (user) {
+    user.isVerified = true;
+  }
+}
+
 export function createSession(userId: string): string {
   const sessionId = crypto.randomUUID();
   const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 days

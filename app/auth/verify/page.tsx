@@ -2,12 +2,15 @@
 
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { Stethoscope, ShieldCheck, Loader2 } from "lucide-react";
+import { Stethoscope, ShieldCheck, Loader2, CheckCircle2 } from "lucide-react";
+import { verifyAccount, resendVerificationCode } from "@/lib/auth/actions";
 
 export default function VerifyPage() {
   const [code, setCode] = useState(["", "", "", "", "", ""]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isResending, setIsResending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
   const router = useRouter();
 
@@ -59,19 +62,34 @@ export default function VerifyPage() {
 
     setIsLoading(true);
     setError(null);
+    setSuccess(null);
 
-    // Simulate verification (in production, this would call an API)
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const result = await verifyAccount(verificationCode);
 
-    // For demo, accept any 6-digit code
-    router.push("/dashboard");
+    if (result.success) {
+      router.push("/dashboard");
+    } else {
+      setError(result.error || "Verification failed");
+      setIsLoading(false);
+    }
   };
 
   const handleResend = async () => {
-    setIsLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsLoading(false);
-    // Show success message
+    setIsResending(true);
+    setError(null);
+    setSuccess(null);
+
+    const result = await resendVerificationCode();
+
+    if (result.success) {
+      setSuccess("A new verification code has been sent to your email.");
+      setCode(["", "", "", "", "", ""]);
+      inputRefs.current[0]?.focus();
+    } else {
+      setError(result.error || "Failed to resend code");
+    }
+
+    setIsResending(false);
   };
 
   return (
@@ -101,6 +119,13 @@ export default function VerifyPage() {
         {error && (
           <div className="mb-6 p-4 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm text-center">
             {error}
+          </div>
+        )}
+
+        {success && (
+          <div className="mb-6 p-4 rounded-lg bg-green-50 border border-green-200 text-green-700 text-sm text-center flex items-center justify-center gap-2">
+            <CheckCircle2 className="h-4 w-4" />
+            {success}
           </div>
         )}
 
@@ -147,13 +172,13 @@ export default function VerifyPage() {
 
         <div className="mt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            Didn&apos;t receive the code?{" "}
+            {"Didn't receive the code? "}
             <button
               onClick={handleResend}
-              disabled={isLoading}
+              disabled={isResending}
               className="text-primary font-semibold hover:underline disabled:opacity-50"
             >
-              Resend Code
+              {isResending ? "Sending..." : "Resend Code"}
             </button>
           </p>
         </div>
