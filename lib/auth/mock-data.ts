@@ -5,7 +5,7 @@ export const mockUsers: (User & { password: string })[] = [
   {
     id: "user-1",
     email: "applicant@healthrecruit.uk",
-    password: "password123",
+    password: "Demo@Health2024!",
     fullName: "Dr. Sarah Ahmed",
     phone: "+44 7700 900123",
     country: "UK",
@@ -16,7 +16,7 @@ export const mockUsers: (User & { password: string })[] = [
   {
     id: "admin-1",
     email: "admin@healthrecruit.uk",
-    password: "admin123",
+    password: "Admin@Secure2024!",
     fullName: "System Administrator",
     phone: "+44 7700 900001",
     country: "UK",
